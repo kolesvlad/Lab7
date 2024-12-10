@@ -8,31 +8,26 @@ public class ReservationManager
 
     public void AddRestaurant(string name, int tableCount)
     {
-        try
+        var restaurant = new Restaurant(name, new Table[tableCount]);
+        
+        for (var i = 0; i < tableCount; i++)
         {
-            var restaurant = new Restaurant(name, new Table[tableCount]);
-            for (var i = 0; i < tableCount; i++)
-            {
-                restaurant.Tables[i] = new Table();
-            }
-            _restaurants.Add(restaurant);
+            restaurant.Tables[i] = new Table();
         }
-        catch (Exception ex)
-        {
-            Log.Error(ex.Message);
-        }
+
+        _restaurants.Add(restaurant);
     }
     
-    public bool BookTable(string restaurantName, DateTime date, int tableNumber)
+    public bool BookTable(string restaurantName, DateTime date, int tableIndex)
     {
         foreach (var restaurant in _restaurants.Where(restaurant => restaurant.Name == restaurantName))
         {
-            if (tableNumber < 0 || tableNumber >= restaurant.Tables.Length)
+            if (tableIndex < 0 || tableIndex >= restaurant.Tables.Length)
             {
-                throw new ArgumentOutOfRangeException(nameof(tableNumber), "Invalid table number.");
+                throw new ArgumentOutOfRangeException(nameof(tableIndex), "Invalid table number.");
             }
 
-            return restaurant.Tables[tableNumber].Book(date);
+            return restaurant.Tables[tableIndex].Book(date);
         }
 
         throw new ArgumentException("Restaurant not found.");
@@ -65,7 +60,7 @@ public class ReservationManager
         return freeTables;
     }
 
-    public void SortRestaurantsByAvailability(DateTime date)
+    public void SortRestaurantsByTablesAvailability(DateTime date)
     {
         _restaurants.Sort(new TablesAvailabilityComparer(date));
     }

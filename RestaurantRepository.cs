@@ -18,10 +18,6 @@ public static class RestaurantRepository
                 {
                     restaurantsData.Add(parts[0], tableCount);
                 }
-                else
-                {
-                    Console.WriteLine(line);
-                }
             }
         }
         catch (IOException ex)

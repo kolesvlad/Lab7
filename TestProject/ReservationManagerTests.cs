@@ -111,7 +111,7 @@ public class ReservationManagerTests
         ClassicAssert.AreEqual(1,
             TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));
 
-        reservationManager.SortRestaurantsByTablesAvailability(DateTime.Now.Date);
+        reservationManager.SortRestaurantsByTablesAvailability(now);
 
         ClassicAssert.AreEqual(4,
             TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));

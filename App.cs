@@ -15,12 +15,17 @@ public static class App
             manager.AddRestaurant("A", 10);
             manager.AddRestaurant("B", 5);
 
-            manager.BookTable("A", new DateTime(2023, 12, 25), 3); // True
-            manager.BookTable("A", new DateTime(2023, 12, 25), 3); // False
+            var firstBookAttempt = manager
+                .BookTable("A", new DateTime(2023, 12, 25), 3);
+            var secondBookAttempt = manager
+                .BookTable("A", new DateTime(2023, 12, 25), 3);
+            
+            Log.Information("A book attempt: {result}", firstBookAttempt);
+            Log.Information("B book attempt: {result}", secondBookAttempt);
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "Something went wrong");
+            Log.Error(ex.Message);
         }
         finally
         {

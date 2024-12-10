@@ -1,8 +1,8 @@
 namespace ConsoleAppRestaurantTableReservationManager;
 
-internal struct Restaurant
+public struct Restaurant
 {
-    public string Name;
+    public readonly string Name;
     public readonly Table[] Tables;
 
     public Restaurant(string name, Table[] tables)

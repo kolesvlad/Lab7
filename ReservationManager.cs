@@ -23,44 +23,27 @@ public class ReservationManager
         }
     }
     
-    public bool BookTable(string restaurantName, DateTime date, int tableCount)
+    public bool BookTable(string restaurantName, DateTime date, int tableNumber)
     {
         foreach (var restaurant in _restaurants.Where(restaurant => restaurant.Name == restaurantName))
         {
-            if (tableCount < 0 || tableCount >= restaurant.Tables.Length)
+            if (tableNumber < 0 || tableNumber >= restaurant.Tables.Length)
             {
-                throw new ArgumentOutOfRangeException(nameof(tableCount), "Invalid table count.");
+                throw new ArgumentOutOfRangeException(nameof(tableNumber), "Invalid table number.");
             }
 
-            return restaurant.Tables[tableCount].Book(date);
+            return restaurant.Tables[tableNumber].Book(date);
         }
 
         throw new ArgumentException("Restaurant not found.");
     }
 
-    // Load Restaurants From
-    // File
-    private void LoadRestaurantsFromFileMethod(string fileP)
+    public void LoadRestaurants(string filePath)
     {
-        try
+        var restaurantsData = RestaurantRepository.LoadRestaurantsFromFile(filePath);
+        foreach (var restaurantData in restaurantsData)
         {
-            string[] ls = File.ReadAllLines(fileP);
-            foreach (string l in ls)
-            {
-                var parts = l.Split(',');
-                if (parts.Length == 2 && int.TryParse(parts[1], out int tableCount))
-                {
-                    AddRestaurant(parts[0], tableCount);
-                }
-                else
-                {
-                    Console.WriteLine(l);
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error");
+            AddRestaurant(restaurantData.Key, restaurantData.Value);
         }
     }
 

@@ -9,18 +9,18 @@ public class TablesAvailabilityComparer(DateTime date) : IComparer<Restaurant>
 
         if (xAvailableTableCount > yAvailableTableCount)
         {
-            return 1;
+            return -1;
         }
 
         if (xAvailableTableCount < yAvailableTableCount)
         {
-            return -1;
+            return 1;
         }
         
         return 0;
     }
     
-    private int CountAvailableTables(Restaurant restaurant, DateTime date)
+    public static int CountAvailableTables(Restaurant restaurant, DateTime date)
     {
         return restaurant.Tables.Count(table => !table.IsBooked(date));
     }

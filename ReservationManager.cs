@@ -2,7 +2,7 @@ namespace ConsoleAppRestaurantTableReservationManager;
 
 public class ReservationManager
 {
-    private readonly List<Restaurant> _restaurants = [];
+    public List<Restaurant> Restaurants { get; } = [];
 
     public void AddRestaurant(string name, int tableCount)
     {
@@ -13,12 +13,12 @@ public class ReservationManager
             restaurant.Tables[i] = new Table();
         }
 
-        _restaurants.Add(restaurant);
+        Restaurants.Add(restaurant);
     }
     
     public bool BookTable(string restaurantName, DateTime date, int tableIndex)
     {
-        foreach (var restaurant in _restaurants.Where(restaurant => restaurant.Name == restaurantName))
+        foreach (var restaurant in Restaurants.Where(restaurant => restaurant.Name == restaurantName))
         {
             if (tableIndex < 0 || tableIndex >= restaurant.Tables.Length)
             {
@@ -44,7 +44,7 @@ public class ReservationManager
     {
         var freeTables = new List<string>();
 
-        foreach (var restaurant in _restaurants)
+        foreach (var restaurant in Restaurants)
         {
             for (var i = 0; i < restaurant.Tables.Length; i++)
             {
@@ -60,7 +60,7 @@ public class ReservationManager
 
     public void SortRestaurantsByTablesAvailability(DateTime date)
     {
-        _restaurants.Sort(new TablesAvailabilityComparer(date));
+        Restaurants.Sort(new TablesAvailabilityComparer(date));
     }
 }
 

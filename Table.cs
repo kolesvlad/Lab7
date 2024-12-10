@@ -6,6 +6,7 @@ public class Table
     
     public bool Book(DateTime date)
     {
+        
         if (_bookedDates.Contains(date))
         { 
             return false;

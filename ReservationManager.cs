@@ -22,7 +22,7 @@ public class ReservationManager
         {
             if (tableIndex < 0 || tableIndex >= restaurant.Tables.Length)
             {
-                throw new ArgumentOutOfRangeException(nameof(tableIndex), "Invalid table number.");
+                throw new ArgumentOutOfRangeException(nameof(tableIndex), "Invalid table index.");
             }
 
             return restaurant.Tables[tableIndex].Book(date);

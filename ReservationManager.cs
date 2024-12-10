@@ -1,10 +1,8 @@
-using Serilog;
-
 namespace ConsoleAppRestaurantTableReservationManager;
 
 public class ReservationManager
 {
-    private readonly List<Restaurant> _restaurants = new();
+    private readonly List<Restaurant> _restaurants = [];
 
     public void AddRestaurant(string name, int tableCount)
     {

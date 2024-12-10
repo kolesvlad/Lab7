@@ -1,31 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/ConsoleAppRestaurantTableReservationManager.csproj": {}
+    "/Users/valdemar/RiderProjects/Lab7/ConsoleAppRestaurantTableReservationManager.csproj": {}
   },
   "projects": {
-    "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/ConsoleAppRestaurantTableReservationManager.csproj": {
+    "/Users/valdemar/RiderProjects/Lab7/ConsoleAppRestaurantTableReservationManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/ConsoleAppRestaurantTableReservationManager.csproj",
+        "projectUniqueName": "/Users/valdemar/RiderProjects/Lab7/ConsoleAppRestaurantTableReservationManager.csproj",
         "projectName": "ConsoleAppRestaurantTableReservationManager",
-        "projectPath": "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/ConsoleAppRestaurantTableReservationManager.csproj",
+        "projectPath": "/Users/valdemar/RiderProjects/Lab7/ConsoleAppRestaurantTableReservationManager.csproj",
         "packagesPath": "/Users/valdemar/.nuget/packages/",
-        "outputPath": "/Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/obj/",
+        "outputPath": "/Users/valdemar/RiderProjects/Lab7/obj/",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "/Users/valdemar/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -41,8 +41,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Serilog": {
               "target": "Package",
@@ -64,26 +64,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.19, 7.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[7.0.19, 7.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.19, 7.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/Users/valdemar/.dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/valdemar/.dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,13 +1,7 @@
 namespace ConsoleAppRestaurantTableReservationManager;
 
-public struct Restaurant
+public struct Restaurant(string name, Table[] tables)
 {
-    public readonly string Name;
-    public readonly Table[] Tables;
-
-    public Restaurant(string name, Table[] tables)
-    {
-        Name = name;
-        Tables = tables;
-    }
+    public readonly string Name = name;
+    public readonly Table[] Tables = tables;
 }

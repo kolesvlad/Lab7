@@ -31,3 +31,22 @@ C:/Users/goodw/source/repos/v-ivanenko/ConsoleAppRestaurantTableReservationManag
 /Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.pdb
 /Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.genruntimeconfig.cache
 /Users/valdemar/Склад/Драгопед/Обʼєктно-орієнтоване програмування/Завдання/7/ConsoleAppRestaurantTableReservationManager/obj/Debug/net7.0/ref/ConsoleAppRestaurantTableReservationManager.dll
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/ConsoleAppRestaurantTableReservationManager
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.deps.json
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.runtimeconfig.json
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.dll
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.pdb
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/Serilog.dll
+/Users/valdemar/RiderProjects/Lab7/bin/Debug/net7.0/Serilog.Sinks.Console.dll
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.csproj.AssemblyReference.cache
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.GeneratedMSBuildEditorConfig.editorconfig
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.AssemblyInfoInputs.cache
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.AssemblyInfo.cs
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.csproj.CoreCompileInputs.cache
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.sourcelink.json
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleA.EDA3FAE7.Up2Date
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.dll
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/refint/ConsoleAppRestaurantTableReservationManager.dll
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.pdb
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ConsoleAppRestaurantTableReservationManager.genruntimeconfig.cache
+/Users/valdemar/RiderProjects/Lab7/obj/Debug/net7.0/ref/ConsoleAppRestaurantTableReservationManager.dll

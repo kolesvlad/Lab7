@@ -4,7 +4,7 @@ namespace ConsoleAppRestaurantTableReservationManager;
 
 public class Table
 {
-    private readonly List<DateTime> _bookedDates = new();
+    private readonly List<DateTime> _bookedDates = [];
     
     public bool Book(DateTime date)
     {

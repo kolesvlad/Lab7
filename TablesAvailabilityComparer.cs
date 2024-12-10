@@ -1,18 +1,11 @@
 namespace ConsoleAppRestaurantTableReservationManager;
 
-public class TablesAvailabilityComparer : IComparer<Restaurant>
+public class TablesAvailabilityComparer(DateTime date) : IComparer<Restaurant>
 {
-    private readonly DateTime _date;
-
-    public TablesAvailabilityComparer(DateTime date)
-    {
-        _date = date;
-    }
-    
     public int Compare(Restaurant x, Restaurant y)
     {
-        var xAvailableTableCount = CountAvailableTables(x, _date);
-        var yAvailableTableCount = CountAvailableTables(y, _date);
+        var xAvailableTableCount = CountAvailableTables(x, date);
+        var yAvailableTableCount = CountAvailableTables(y, date);
 
         if (xAvailableTableCount > yAvailableTableCount)
         {

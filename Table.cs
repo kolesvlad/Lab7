@@ -8,21 +8,13 @@ public class Table
     
     public bool Book(DateTime date)
     {
-        try
-        {
-            if (_bookedDates.Contains(date))
-            {
-                return false;
-            }
-
-            _bookedDates.Add(date);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Log.Error(ex.Message);
+        if (_bookedDates.Contains(date))
+        { 
             return false;
         }
+        
+        _bookedDates.Add(date);
+        return true;
     }
     
     public bool IsBooked(DateTime date)

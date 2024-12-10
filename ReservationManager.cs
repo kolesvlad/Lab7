@@ -47,81 +47,27 @@ public class ReservationManager
         }
     }
 
-    //Find All Free Tables
-    public List<string> FindAllFreeTables(DateTime dt)
+    public List<string> FindAllFreeTables(DateTime date)
     {
-        try
-        { 
-            List<string> free = new List<string>();
-            foreach (var r in res)
+        var freeTables = new List<string>();
+
+        foreach (var restaurant in _restaurants)
+        {
+            for (var i = 0; i < restaurant.Tables.Length; i++)
             {
-                for (int i = 0; i < r.t.Length; i++)
+                if (!restaurant.Tables[i].IsBooked(date))
                 {
-                    if (!r.t[i].IsBooked(dt))
-                    {
-                        free.Add($"{r.n} - Table {i + 1}");
-                    }
+                    freeTables.Add($"{restaurant.Name} - Table {i + 1}");
                 }
             }
-            return free;
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error");
-            return new List<string>();
-        }
+
+        return freeTables;
     }
 
-    public void SortRestaurantsByAvailabilityForUsersMethod(DateTime dt)
+    public void SortRestaurantsByAvailability(DateTime date)
     {
-        try
-        { 
-            bool swapped;
-            do
-            {
-                swapped = false;
-                for (int i = 0; i < res.Count - 1; i++)
-                {
-                    int avTc = CountAvailableTablesForRestaurantClassAndDateTimeMethod(res[i], dt); // available tables current
-                    int avTn = CountAvailableTablesForRestaurantClassAndDateTimeMethod(res[i + 1], dt); // available tables next
-
-                    if (avTc < avTn)
-                    {
-                        // Swap restaurants
-                        var temp = res[i];
-                        res[i] = res[i + 1];
-                        res[i + 1] = temp;
-                        swapped = true;
-                    }
-                }
-            } while (swapped);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error");
-        }
-    }
-
-    // count available tables in a restaurant
-    public int CountAvailableTablesForRestaurantClassAndDateTimeMethod(Restaurant r, DateTime dt)
-    {
-        try
-        {
-            int count = 0;
-            foreach (var t in r.t)
-            {
-                if (!t.IsBooked(dt))
-                {
-                    count++;
-                }
-            }
-            return count;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error");
-            return 0;
-        }
+        _restaurants.Sort(new TablesAvailabilityComparer(date));
     }
 }
 

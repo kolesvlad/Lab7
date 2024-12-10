@@ -1,33 +1,33 @@
+using Serilog;
+
 namespace ConsoleAppRestaurantTableReservationManager;
 
 public class ReservationManager
 {
     private readonly List<Restaurant> _restaurants = new();
 
-    public void AddRestaurant(string n, int t)
+    public void AddRestaurant(string name, int tableCount)
     {
         try
         {
-            Restaurant r = new Restaurant();
-            r.n = n;
-            r.t = new RestaurantTableClass[t];
-            for (int i = 0; i < t; i++)
+            var restaurant = new Restaurant(name, new Table[tableCount]);
+            for (var i = 0; i < tableCount; i++)
             {
-                r.t[i] = new RestaurantTableClass();
+                restaurant.Tables[i] = new Table();
             }
-            _restaurants.Add(r);
+            _restaurants.Add(restaurant);
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Error");
+            Log.Error(ex.Message);
         }
     }
     
-    public bool BookTable(string rName, DateTime d, int tNumber)
+    public bool BookTable(string restaurantName, DateTime d, int tNumber)
     {
         foreach (var r in _restaurants)
         {
-            if (r.n == rName)
+            if (r.n == restaurantName)
             {
                 if (tNumber < 0 || tNumber >= r.t.Length)
                 {
@@ -145,20 +145,14 @@ public class ReservationManager
     }
 }
 
-// Restaurant Class
-public class Restaurant
-{
-    public string n; //name
-    public RestaurantTableClass[] t; // tables
-}
 
 // Table Class
-public class RestaurantTableClass
+public class Table
 {
     private List<DateTime> bd; //booked dates
 
 
-    public RestaurantTableClass()
+    public Table()
     {
         bd = new List<DateTime>();
     }

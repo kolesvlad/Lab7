@@ -1,15 +1,16 @@
-﻿using ConsoleAppRestaurantTableReservationManager;
-using Serilog;
+﻿using Serilog;
+
+namespace ConsoleAppRestaurantTableReservationManager;
 
 public static class App
 {
-    static void Main(string[] args)
+    public static void Main()
     {
         Initialize();
         
         try
         {
-            ReservationManager manager = new ReservationManager();
+            var manager = new ReservationManager();
             
             manager.AddRestaurant("A", 10);
             manager.AddRestaurant("B", 5);

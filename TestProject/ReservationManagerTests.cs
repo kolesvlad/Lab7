@@ -61,14 +61,14 @@ public class ReservationManagerTests
         
         reservationManager.LoadRestaurants(filePath);
         
-        ClassicAssert.AreEqual(reservationManager.Restaurants[0].Name, "PuzataHouse");
-        ClassicAssert.AreEqual(reservationManager.Restaurants[0].Tables.Length, 10);
+        ClassicAssert.AreEqual("PuzataHouse", reservationManager.Restaurants[0].Name);
+        ClassicAssert.AreEqual(10, reservationManager.Restaurants[0].Tables.Length);
         
-        ClassicAssert.AreEqual(reservationManager.Restaurants[1].Name, "Mak");
-        ClassicAssert.AreEqual(reservationManager.Restaurants[1].Tables.Length, 500);
+        ClassicAssert.AreEqual("Mak", reservationManager.Restaurants[1].Name);
+        ClassicAssert.AreEqual(500, reservationManager.Restaurants[1].Tables.Length);
         
-        ClassicAssert.AreEqual(reservationManager.Restaurants[2].Name, "AromaCava");
-        ClassicAssert.AreEqual(reservationManager.Restaurants[2].Tables.Length, 8);
+        ClassicAssert.AreEqual("AromaCava", reservationManager.Restaurants[2].Name);
+        ClassicAssert.AreEqual(8, reservationManager.Restaurants[2].Tables.Length);
     }
 
     [Test]
@@ -97,7 +97,7 @@ public class ReservationManagerTests
         reservationManager.AddRestaurant("TestRestaurant3", 5);
 
         reservationManager.BookTable("TestRestaurant1", now, 0);
-        reservationManager.BookTable("TestRestaurant1", now, 1);
+        reservationManager.BookTable("TestRestaurant1", now.AddDays(1), 1);
         reservationManager.BookTable("TestRestaurant1", now, 2);
         reservationManager.BookTable("TestRestaurant1", now, 3);
         reservationManager.BookTable("TestRestaurant1", now, 4);
@@ -108,7 +108,7 @@ public class ReservationManagerTests
 
         reservationManager.BookTable("TestRestaurant3", now, 1);
 
-        ClassicAssert.AreEqual(0,
+        ClassicAssert.AreEqual(1,
             TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));
 
         reservationManager.SortRestaurantsByTablesAvailability(DateTime.Now.Date);

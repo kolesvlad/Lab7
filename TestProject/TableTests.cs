@@ -9,10 +9,12 @@ public class TableTests
     public void TestTableBook()
     {
         var table = new Table();
-        var bookResult = table.Book(DateTime.Now.Date);
+        var now = DateTime.Now.Date;
+        
+        var bookResult = table.Book(now);
         ClassicAssert.IsTrue(bookResult);
         
-        bookResult = table.Book(DateTime.Now.Date);
+        bookResult = table.Book(now);
         ClassicAssert.IsFalse(bookResult);
     }
 
@@ -21,6 +23,7 @@ public class TableTests
     {
         var table = new Table();
         var now = DateTime.Now.Date;
+        
         table.Book(now);
         
         ClassicAssert.IsTrue(table.IsBooked(now));

@@ -16,8 +16,8 @@ public class RestaurantRepositoryTests
         ClassicAssert.IsTrue(restaurantsData.ContainsKey("Mak"));
         ClassicAssert.IsTrue(restaurantsData.ContainsKey("AromaCava"));
         
-        ClassicAssert.AreEqual(restaurantsData["PuzataHouse"], 10);
-        ClassicAssert.AreEqual(restaurantsData["Mak"], 500);
-        ClassicAssert.AreEqual(restaurantsData["AromaCava"], 8);
+        ClassicAssert.AreEqual(10, restaurantsData["PuzataHouse"]);
+        ClassicAssert.AreEqual(500, restaurantsData["Mak"]);
+        ClassicAssert.AreEqual(8, restaurantsData["AromaCava"]);
     }
 }

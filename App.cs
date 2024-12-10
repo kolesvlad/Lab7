@@ -20,8 +20,8 @@ public static class App
             var secondBookAttempt = manager
                 .BookTable("A", new DateTime(2023, 12, 25), 3);
             
-            Log.Information("A book attempt: {result}", firstBookAttempt);
-            Log.Information("B book attempt: {result}", secondBookAttempt);
+            Log.Information("First book attempt: {result}", firstBookAttempt);
+            Log.Information("Second book attempt: {result}", secondBookAttempt);
         }
         catch (Exception ex)
         {

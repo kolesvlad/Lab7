@@ -90,31 +90,30 @@ public class ReservationManagerTests
     public void TestSortRestaurantsByTablesAvailability()
     {
         var reservationManager = new ReservationManager();
-        
         var now = DateTime.Now.Date;
+
         reservationManager.AddRestaurant("TestRestaurant1", 5);
         reservationManager.AddRestaurant("TestRestaurant2", 5);
         reservationManager.AddRestaurant("TestRestaurant3", 5);
-        
+
         reservationManager.BookTable("TestRestaurant1", now, 0);
         reservationManager.BookTable("TestRestaurant1", now, 1);
         reservationManager.BookTable("TestRestaurant1", now, 2);
         reservationManager.BookTable("TestRestaurant1", now, 3);
         reservationManager.BookTable("TestRestaurant1", now, 4);
-        
+
         reservationManager.BookTable("TestRestaurant2", now, 0);
         reservationManager.BookTable("TestRestaurant2", now, 1);
         reservationManager.BookTable("TestRestaurant2", now, 2);
-        
+
         reservationManager.BookTable("TestRestaurant3", now, 1);
-        
+
         ClassicAssert.AreEqual(0,
             TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));
-        
+
         reservationManager.SortRestaurantsByTablesAvailability(DateTime.Now.Date);
-        
-        ClassicAssert.AreEqual(4, 
+
+        ClassicAssert.AreEqual(4,
             TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));
     }
-
 }

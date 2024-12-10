@@ -23,22 +23,19 @@ public class ReservationManager
         }
     }
     
-    public bool BookTable(string restaurantName, DateTime d, int tNumber)
+    public bool BookTable(string restaurantName, DateTime date, int tableCount)
     {
-        foreach (var r in _restaurants)
+        foreach (var restaurant in _restaurants.Where(restaurant => restaurant.Name == restaurantName))
         {
-            if (r.n == restaurantName)
+            if (tableCount < 0 || tableCount >= restaurant.Tables.Length)
             {
-                if (tNumber < 0 || tNumber >= r.t.Length)
-                {
-                    throw new Exception(null); //Invalid table number
-                }
-
-                return r.t[tNumber].Book(d);
+                throw new ArgumentOutOfRangeException(nameof(tableCount), "Invalid table count.");
             }
+
+            return restaurant.Tables[tableCount].Book(date);
         }
 
-        throw new Exception(null); //Restaurant not found
+        throw new ArgumentException("Restaurant not found.");
     }
 
     // Load Restaurants From
@@ -146,40 +143,3 @@ public class ReservationManager
 }
 
 
-// Table Class
-public class Table
-{
-    private List<DateTime> bd; //booked dates
-
-
-    public Table()
-    {
-        bd = new List<DateTime>();
-    }
-
-    // book
-    public bool Book(DateTime d)
-    {
-        try
-        { 
-            if (bd.Contains(d))
-            {
-                return false;
-            }
-            //add to bd
-            bd.Add(d);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error");
-            return false;
-        }
-    }
-
-    // is booked
-    public bool IsBooked(DateTime d)
-    {
-        return bd.Contains(d);
-    }
-}

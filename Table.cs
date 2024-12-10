@@ -1,5 +1,3 @@
-using Serilog;
-
 namespace ConsoleAppRestaurantTableReservationManager;
 
 public class Table

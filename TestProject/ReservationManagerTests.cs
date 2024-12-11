@@ -25,15 +25,15 @@ public class ReservationManagerTests
     public void TestBookTable()
     {
         var reservationManager = new ReservationManager();
-
         const string testName = "TestRestaurant";
+        var now = DateTime.Now.Date;
         
         reservationManager.AddRestaurant(testName, 5);
-        var bookResult = reservationManager.BookTable(testName, DateTime.Now.Date, 0);
+        var bookResult = reservationManager.BookTable(testName, now, 0);
 
         ClassicAssert.IsTrue(bookResult);
 
-        bookResult = reservationManager.BookTable(testName, DateTime.Now.Date, 0);
+        bookResult = reservationManager.BookTable(testName, now, 0);
         
         ClassicAssert.IsFalse(bookResult);
     }
@@ -42,15 +42,15 @@ public class ReservationManagerTests
     public void TestBookTableWithExceptions()
     {
         var reservationManager = new ReservationManager();
-
         const string testName = "TestRestaurant";
+        var now = DateTime.Now.Date;
         
         reservationManager.AddRestaurant(testName, 5);
         
         Assert.Throws<ArgumentOutOfRangeException>(() => 
-            reservationManager.BookTable(testName, DateTime.Now.Date, 9));
+            reservationManager.BookTable(testName, now, 9));
         Assert.Throws<ArgumentException>(() => 
-            reservationManager.BookTable("FakeRestaurant", DateTime.Now.Date, 4));
+            reservationManager.BookTable("FakeRestaurant", now, 4));
     }
 
     [Test]
@@ -76,12 +76,13 @@ public class ReservationManagerTests
     {
         var reservationManager = new ReservationManager();
         const string testName = "TestRestaurant";
+        var now = DateTime.Now.Date;
         
         reservationManager.AddRestaurant(testName, 3);
-        reservationManager.BookTable(testName, DateTime.Now.Date, 0);
-        reservationManager.BookTable(testName, DateTime.Now.Date, 1);
+        reservationManager.BookTable(testName, now, 0);
+        reservationManager.BookTable(testName, now, 1);
 
-        var freeTables = reservationManager.FindAllFreeTables(DateTime.Now.Date);
+        var freeTables = reservationManager.FindAllFreeTables(now);
         
         ClassicAssert.Contains($"{testName} - Table 3", freeTables);
     }
@@ -109,11 +110,11 @@ public class ReservationManagerTests
         reservationManager.BookTable("TestRestaurant3", now, 1);
 
         ClassicAssert.AreEqual(1,
-            TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));
+            TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants.First(), now));
 
         reservationManager.SortRestaurantsByTablesAvailability(now);
 
         ClassicAssert.AreEqual(4,
-            TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants[0], now));
+            TablesAvailabilityComparer.CountAvailableTables(reservationManager.Restaurants.First(), now));
     }
 }

@@ -5,16 +5,23 @@ namespace ConsoleAppRestaurantTableReservationManager.TestProject;
 [TestFixture]
 public class TableTests
 {
+    private DateTime _now;
+    
+    [SetUp]
+    public void Setup()
+    {
+        _now = DateTime.Now.Date;
+    }
+    
     [Test]
     public void TestTableBook()
     {
         var table = new Table();
-        var now = DateTime.Now.Date;
         
-        var bookResult = table.Book(now);
+        var bookResult = table.Book(_now);
         ClassicAssert.IsTrue(bookResult);
         
-        bookResult = table.Book(now);
+        bookResult = table.Book(_now);
         ClassicAssert.IsFalse(bookResult);
     }
 
@@ -22,10 +29,9 @@ public class TableTests
     public void TestTableIsBooked()
     {
         var table = new Table();
-        var now = DateTime.Now.Date;
         
-        table.Book(now);
+        table.Book(_now);
         
-        ClassicAssert.IsTrue(table.IsBooked(now));
+        ClassicAssert.IsTrue(table.IsBooked(_now));
     }
 }

@@ -762,7 +762,6 @@
       "packagesPath": "/Users/valdemar/.nuget/packages/",
       "outputPath": "/Users/valdemar/RiderProjects/Lab7/ConsoleAppRestaurantTableReservationManager/obj/",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "/Users/valdemar/.nuget/NuGet/NuGet.Config"
       ],
